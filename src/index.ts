@@ -25,15 +25,10 @@ io.on('connection', (socket) => {
     });
 });
 
-// console.log(forecast.getWetherForecast('Kirovohrad'));
-
 app.use(express.static(path.join(getRootDir(), 'public')));
 app.use('/assets', express.static(path.join(getRootDir(), 'assets')));
 app.use(router);
-
 runApp();
-
-
 
 async function runApp() {
     await cityname.init();

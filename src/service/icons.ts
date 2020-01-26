@@ -7,7 +7,6 @@ class IconUrl {
 
     async init() {
         return new Promise((resolve) => {
-            console.log('icons init');
             if (!process.env.DATA_FOLDER) throw new Error('Data folder must be setted');
             if (!process.env.ICON_FILE) throw new Error('City name file must be setted');
 
