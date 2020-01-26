@@ -1,0 +1,135 @@
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+ }
+
+.form-container {
+    width: 100%;
+    margin-top: 10%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #0093ff;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 25px;
+    margin-left: 25px;
+    font-size: 13px;
+    outline: 0;
+}
+
+input {
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 9px;
+    width: 200px;
+    outline: none;
+    font-size: 13px;
+    color: #bebebe;
+}
+
+.city-list {
+    position: absolute;
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 200px;
+    border-radius: 10px;
+    background-color:#f2f2f2;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.city-list li:first-child {
+    padding-top: 3px;
+}
+
+.city-list li:last-child {
+    padding-bottom: 3px;
+}
+
+
+.city-list li {
+    cursor: pointer;
+    padding: 0 3px;
+}
+
+.city-list li:hover {
+    background-color: #bebebe;
+}
+
+.citycode {
+    font-size: 10px;
+    display: inline-block;
+    width: 40px;
+}
+
+.cityname {
+    font-size: 13px;
+}
+
+.citycountry {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.forecast-container {
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-wrapper {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.day-weather {
+    background-color: #bebebe;
+    margin: 0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.day-weather p {
+    top: 0;
+    margin: 0;
+    line-height: 50px;
+    font-size: 20px;
+    background-color: #bebebe;
+    border-bottom: 30px solid white;
+    text-align: center;
+}
+
+.day-weather .icon {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

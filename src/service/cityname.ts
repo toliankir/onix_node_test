@@ -1,9 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { getRootDir } from '../helpers/rootdir';
-
-export default class CityNames {
-
+import { City } from '../types';
+class CityName {
     private cities = [];
 
     async init() {
@@ -23,7 +22,7 @@ export default class CityNames {
         });      
     }
 
-    searchCity(city: string) {
+    searchCity(city: string): City[] {
         return this.cities.filter((el: any) => {
             return el.name.toString().toUpperCase().indexOf(city.toUpperCase()) !== -1;
         }).map((el: any) => {
@@ -35,3 +34,5 @@ export default class CityNames {
         });
     }    
 }
+
+export default new CityName();

@@ -1,0 +1,7 @@
+div.forecast-container
+    div.weather-wrapper
+        each day in weather
+            div.day-weather
+                p= day.day
+                div.icon
+                    img(src= day.icon)
