@@ -41,7 +41,7 @@ class Forecast {
                 day = eventDay;
                 weatherTypeId = {};
             }
-            weatherTypeId[el.weather[0].id] = weatherTypeId[el.weather[0].id] !== undefined ? weatherTypeId[el.weather[0].id] + 1 : 0;
+            weatherTypeId[el.weather[0].id] = weatherTypeId[el.weather[0].id] !== undefined ? weatherTypeId[el.weather[0].id] + 1 : 1;
         });
         result.push({
             day,
