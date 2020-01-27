@@ -1,6 +1,7 @@
 import request from 'request';
 import { DayForecast } from '../types';
 import iconurl from '../service/icons';
+import { dayInSpecTZ } from '../helpers/helpers';
 class Forecast {
     private fetchedForecast:any = {};
 
@@ -24,12 +25,13 @@ class Forecast {
 
     getWetherForecast(): DayForecast[] {
         const result: DayForecast[] = [];
-        const timezone = this.fetchedForecast.city.timezone;
+        const timezoneOffset = this.fetchedForecast.city.timezone - (new Date()).getTimezoneOffset() * 60;
         let day = '';
         let weatherTypeId: any = {};
         this.fetchedForecast.list.forEach((el: any) => {
             // console.log((el.dt_txt as string).substr(8, 2));
-            const date = new Date((el.dt) * 1000);
+            
+            const date = new Date((el.dt - timezoneOffset) * 1000);
             const eventDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()];
             if (day !== eventDay) {
                 if (day !== '') {
@@ -49,7 +51,7 @@ class Forecast {
         });
         return result;
     }
-
+   
     getPrimeryWetherId(weather: any): string {
         let maxValue: number = 0;;
         let maxKey = '';
