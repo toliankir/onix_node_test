@@ -5,7 +5,7 @@ import path from 'path';
 import socketio from 'socket.io';
 import cityname from './service/cityname';
 import iconurl from './service/icons';
-import { getRootDir } from './helpers/rootdir';
+import { getRootDir } from './helpers/helpers';
 import router from './router/web';
 import { City } from './types';
 

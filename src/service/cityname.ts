@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { getRootDir } from '../helpers/rootdir';
+import { getRootDir } from '../helpers/helpers';
 import { City } from '../types';
 class CityName {
     private cities = [];

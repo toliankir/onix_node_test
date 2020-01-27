@@ -24,11 +24,11 @@ class Forecast {
 
     getWetherForecast(): DayForecast[] {
         const result: DayForecast[] = [];
-
         const timezone = this.fetchedForecast.city.timezone;
         let day = '';
         let weatherTypeId: any = {};
         this.fetchedForecast.list.forEach((el: any) => {
+            // console.log((el.dt_txt as string).substr(8, 2));
             const date = new Date((el.dt) * 1000);
             const eventDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()];
             if (day !== eventDay) {

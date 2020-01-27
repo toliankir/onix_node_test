@@ -4,7 +4,8 @@ import forecast from '../service/forecast';
 const router = Router();
 
 router.get('/', (req, res) => {
-    res.render('index');
+    const tz = (new Date()).getTimezoneOffset();
+    res.render('index', { tz });
 });
 
 router.get('/forecast/:cityname', async (req, res) => {
