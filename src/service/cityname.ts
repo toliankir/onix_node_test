@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { getRootDir } from '../helpers/helpers';
 import { City } from '../types';
+import logger from '../service/logger';
 class CityName {
     private cities = [];
 
@@ -16,6 +17,7 @@ class CityName {
                 fs.readFile(filename, (err, data) => {
                     if (err) throw new Error(err.message);
                     this.cities = JSON.parse(data.toString());
+                    logger.log({ level: 'info', message: `Init cities service. Loaded ${this.cities.length} city names.`});
                     resolve();
                 });  
             });
@@ -23,7 +25,7 @@ class CityName {
     }
 
     searchCity(city: string): City[] {
-        return this.cities.filter((el: any) => {
+        const cities = this.cities.filter((el: any) => {
             return el.name.toString().toUpperCase().indexOf(city.toUpperCase()) !== -1;
         }).map((el: any) => {
             return {
@@ -32,6 +34,8 @@ class CityName {
                 country: el.country,
             }
         });
+        logger.log({ level: 'debug', message: `Requested city name. City: ${city}, found results: ${cities.length}`});
+        return cities;
     }    
 }
 

@@ -1,7 +1,7 @@
 import request from 'request';
 import { DayForecast } from '../types';
 import iconurl from '../service/icons';
-import { dayInSpecTZ } from '../helpers/helpers';
+import logger from '../service/logger';
 class Forecast {
     private fetchedForecast:any = {};
 
@@ -18,6 +18,7 @@ class Forecast {
             }, (err, resp, body) => {
                 if (err) throw new Error(err.message);
                 this.fetchedForecast = JSON.parse(body);
+                logger.log({ level: 'info', message: `Requested weather forecast. Response city: ${this.fetchedForecast.city.name}`});
                 return resolve();
             });
         });
@@ -29,8 +30,6 @@ class Forecast {
         let day = '';
         let weatherTypeId: any = {};
         this.fetchedForecast.list.forEach((el: any) => {
-            // console.log((el.dt_txt as string).substr(8, 2));
-            
             const date = new Date((el.dt - timezoneOffset) * 1000);
             const eventDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()];
             if (day !== eventDay) {
