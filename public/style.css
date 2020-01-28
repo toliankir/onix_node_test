@@ -32,6 +32,7 @@ button {
     margin-left: 25px;
     font-size: 13px;
     outline: 0;
+    cursor: pointer;
 }
 
 input {
@@ -122,8 +123,13 @@ input {
     line-height: 50px;
     font-size: 20px;
     background-color: #bebebe;
-    border-bottom: 30px solid white;
     text-align: center;
+}
+
+.day-weather .stripe {
+    background-color: white;
+    height: 30px;
+    width: 100%;
 }
 
 .day-weather .icon {
@@ -132,5 +138,3 @@ input {
     justify-content: center;
     align-items: center;
 }
-
-
